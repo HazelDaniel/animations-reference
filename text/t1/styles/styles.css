@@ -1,0 +1,94 @@
+*,
+html {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+a, p {
+  color: #fff;
+}
+
+body {
+  background-color: #04070a;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+body > * {
+  display: inline-flex !important;
+}
+
+.text-div-1 {
+  margin-top: 5%;
+  position: relative;
+  overflow: hidden;
+  transition: all 5s ease-in;
+  cursor: pointer;
+}
+.text-div-1 > p {
+  font-size: 5rem;
+}
+
+.text-bg-slide > span {
+  display: block;
+  height: 100%;
+  /* &:first-of-type { */
+  /* 	transform: translateY(200%); */
+  /* } */
+  /* &:nth-of-type(2) { */
+  /* 	transform-origin: bottom; */
+  /* 	transform: translateY(-200%); */
+  /* } */
+}
+
+.text-bg-toggle > span {
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  background-color: red;
+  z-index: -1;
+}
+.text-bg-toggle > span:first-of-type {
+  animation-name: back_slide_up;
+  width: 55%;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transition-delay: 0.2s;
+  transform: translateY(200%);
+}
+.text-bg-toggle > span:nth-of-type(2) {
+  animation-name: back_slide_down;
+  animation-delay: 0.1s;
+  width: 45%;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  background-color: red;
+  transform-origin: bottom;
+  transform: translateY(-200%);
+}
+@keyframes back_slide_up {
+  from {
+    transform: translateY(200%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes back_slide_down {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
