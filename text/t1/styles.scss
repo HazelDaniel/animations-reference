@@ -28,59 +28,76 @@ body {
 	&>p {
 		font-size: 5rem;
 	}
-
 }
 
 .text-bg-slide {
+	overflow: visible;
+	padding: 0 2rem;
 	&>span {
 		@include makeFullHeightBlock;
-		/* &:first-of-type { */
-		/* 	transform: translateY(200%); */
-		/* } */
-		/* &:nth-of-type(2) { */
-		/* 	transform-origin: bottom; */
-		/* 	transform: translateY(-200%); */
-		/* } */
-	}
-}
-.text-bg-toggle {
-	&>span {
-		animation-duration: .5s;
-		animation-iteration-count: 1;
-		background-color: red;
 		z-index: -1;
+		background-color: red;
+		animation-duration: 20s;
+		animation-iteration-count: 1;
+		animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 		&:first-of-type {
+			transform: translateY(200%);
+			border-bottom-left-radius: 50%;
+			border-bottom-right-radius: 50%;
+		}
+		&:nth-of-type(2) {
+			transform-origin: bottom;
+			transform: translateY(-200%);
+			border-top-left-radius: 50%;
+			border-top-right-radius: 50%;
+		}
+		&.slide-up {
 			animation-name: back_slide_up;
+		}
+		&.slide-down {
+			animation-name: back_slide_down;
+			animation-delay: .1s;
+		}
+		&:first-of-type {
 			width: 55%;
 			@include makeAbsoluteTopLeftDiv;
 			transform-origin: top;
 			transition-delay: .2s;
-			transform: translateY(200%);
 		}
 		&:nth-of-type(2) {
-			animation-name: back_slide_down;
-			animation-delay: .1s;
 			width: 45%;
 			@include makeAbsoluteTopRightDiv;
-			background-color: red;
 			transform-origin: bottom;
-			transform: translateY(-200%);
 		}
-	}
-	@keyframes back_slide_up {
-		from {
-			transform: translateY(200%);
+		@keyframes back_slide_up {
+			from {
+				transform: translateY(200%);
+			}
+			5% {
+				transform: translateY(0%);
+			}
+			10% {
+				border-radius: unset;
+			}
+			to {
+				transform: translateY(0%);
+				border-radius: unset;
+			}
 		}
-		to {
-			transform: translateY(0%);
-		}
-	}
-	@keyframes back_slide_down {
-		from {
-			transform: translateY(-200%);
-		}
-		to {
-			transform: translateY(0%);
+		@keyframes back_slide_down {
+			from {
+				transform: translateY(-200%);
+			}
+			5% {
+				transform: translateY(0%);
+			}
+			10% {
+				border-radius: unset;
+			}
+			to {
+				transform: translateY(0%);
+				border-radius: unset;
+			}
 		}
 	}
 }
